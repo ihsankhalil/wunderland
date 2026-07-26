@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>wunderländ – Portal von Ihsan David Khalil</title>
+<meta name="description" content="Portalseite von Ihsan David Khalil. Drei Projekte unter einem Dach: die Zenon-Methode, neckarfreunde Strategieberatung und persönliche Arbeit rund um Klarheit und Entscheidung.">
+<meta name="robots" content="index, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink:        #0F1729;   /* Nachtblau, Basis */
+  --ink-soft:   #1A2338;   /* leichte Erhebung */
+  --sand:       #E8DFD3;   /* warmes Sandbeige */
+  --sand-dim:   #C9BFB1;   /* gedämpftes Beige */
+  --copper:     #B8724C;   /* Kupferakzent */
+  --copper-dim: #8A5638;
+  --hairline:   rgba(232, 223, 211, 0.14);
+  --hairline-strong: rgba(232, 223, 211, 0.28);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--sand);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ambient background – ganz leichte, statische Vignette */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(184, 114, 76, 0.06), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(232, 223, 211, 0.03), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── HEADER ─────────────────────────────────── */
+header {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.wordmark {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--sand);
+}
+.wordmark span { color: var(--copper); }
+.meta {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sand-dim);
+}
+
+/* ── HERO ───────────────────────────────────── */
+.hero {
+  padding: 120px 0 100px;
+  border-bottom: 1px solid var(--hairline);
+}
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: var(--copper);
+}
+h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(42px, 6vw, 84px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--sand);
+  max-width: 900px;
+  margin-bottom: 40px;
+}
+h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--copper);
+}
+.hero-lede {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--sand-dim);
+  max-width: 620px;
+  font-weight: 300;
+}
+
+/* ── PROJEKT-INDEX ──────────────────────────── */
+.projects {
+  padding: 100px 0;
+}
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sand-dim);
+  margin-bottom: 60px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--hairline);
+  display: flex;
+  justify-content: space-between;
+}
+.section-label span { color: var(--copper); }
+
+.project {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr;
+  gap: 40px;
+  padding: 48px 0;
+  border-bottom: 1px solid var(--hairline);
+  align-items: start;
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left 0.4s ease;
+}
+.project:hover {
+  padding-left: 20px;
+}
+.project:hover .project-num {
+  color: var(--copper);
+}
+.project:hover .project-title {
+  color: var(--copper);
+}
+
+.project-num {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 32px;
+  font-style: italic;
+  color: var(--sand-dim);
+  transition: color 0.3s ease;
+}
+
+.project-main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.project-kind {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sand-dim);
+}
+.project-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--sand);
+  transition: color 0.3s ease;
+}
+.project-title em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.project-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.project-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--sand-dim);
+}
+.project-link {
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: var(--sand);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--hairline-strong);
+  padding-bottom: 4px;
+  align-self: flex-start;
+}
+.project-link .arrow {
+  font-family: 'Fraunces', serif;
+  transition: transform 0.3s ease;
+}
+.project:hover .project-link .arrow {
+  transform: translateX(4px);
+}
+
+/* ── ÜBER-TEXT (unauffällig) ────────────────── */
+.about {
+  padding: 100px 0;
+  border-top: 1px solid var(--hairline);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.about-label {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copper);
+}
+.about-text {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 1.55;
+  color: var(--sand);
+  max-width: 720px;
+}
+.about-text em {
+  font-style: italic;
+  color: var(--copper);
+}
+
+/* ── SOCIAL ─────────────────────────────────── */
+.social {
+  padding: 100px 0;
+  border-top: 1px solid var(--hairline);
+}
+.social-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+.social-column {
+  display: flex;
+  flex-direction: column;
+}
+.social-column-label {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copper);
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--hairline-strong);
+  margin-bottom: 8px;
+}
+.social-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--hairline);
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left 0.3s ease;
+}
+.social-item:hover { padding-left: 12px; }
+.social-item:hover .social-platform { color: var(--copper); }
+
+.social-platform {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--sand);
+  transition: color 0.3s ease;
+}
+.social-handle {
+  font-size: 13px;
+  color: var(--sand-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── FOOTER ─────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--hairline);
+  padding: 48px 0 40px;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.footer-signature {
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  color: var(--sand-dim);
+}
+.footer-links {
+  display: flex;
+  gap: 32px;
+}
+.footer-links a {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sand-dim);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--copper); }
+
+/* ── RESPONSIVE ─────────────────────────────── */
+@media (max-width: 768px) {
+  .container { padding: 0 24px; }
+  .hero { padding: 80px 0 60px; }
+  .projects { padding: 60px 0; }
+  .about { padding: 60px 0; }
+  .project {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 0;
+  }
+  .project:hover { padding-left: 0; }
+  .project-num { font-size: 24px; }
+  .project-title { font-size: 28px; }
+  .about-grid { grid-template-columns: 1fr; gap: 24px; }
+  .about-text { font-size: 18px; }
+  .social { padding: 60px 0; }
+  .social-columns { grid-template-columns: 1fr; gap: 40px; }
+  .social-item:hover { padding-left: 0; }
+  .header-inner { flex-direction: column; gap: 8px; align-items: flex-start; }
+}
+
+/* Focus states – Barrierefreiheit */
+a:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <div class="wordmark">wunderländ<span>.</span></div>
+      <div class="meta">Portal · Stuttgart</div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Ein Kunde, ein Satz, ein Motto</div>
+    <h1>„Ihsan, du bist <em>erlebensbedürftig.</em>"</h1>
+    <p class="hero-lede">
+      Digital, per Telefon, per Mail, per Social Media – alles schön und gut.
+      Aber man muss mich persönlich kennenlernen. Das war der Satz eines Kunden.
+      Er ist geblieben. Diese Seite zeigt, woran ich arbeite.<br><br>
+      <strong style="color: var(--sand); font-weight: 400;">Ihsan David Khalil.</strong>
+    </p>
+  </div>
+</section>
+
+<section class="projects">
+  <div class="container">
+    <div class="section-label">
+      <span>Index</span>
+      <span>2026</span>
+    </div>
+
+    <!-- PROJEKT I -->
+    <a class="project" href="https://www.ihsan-khalil.de" target="_blank" rel="noopener">
+      <div class="project-num">I</div>
+      <div class="project-main">
+        <div class="project-kind">Buch · Methode · Coaching</div>
+        <div class="project-title">Zenon-Methode<br><em>mein Lebensthema</em></div>
+      </div>
+      <div class="project-detail">
+        <p class="project-desc">
+          Zwanzig Jahre Arbeit an einer Frage: Wie stoppt man das Gedanken­karussell,
+          bevor es einen stoppt? Herausgekommen ist ein Buch und eine Methode,
+          die ich in Coachings und Retreats weitergebe.
+        </p>
+        <span class="project-link">
+          ihsan-khalil.de <span class="arrow">→</span>
+        </span>
+      </div>
+    </a>
+
+    <!-- PROJEKT II -->
+    <a class="project" href="https://www.neckarfreunde.de" target="_blank" rel="noopener">
+      <div class="project-num">II</div>
+      <div class="project-main">
+        <div class="project-kind">Strategieberatung · B2B</div>
+        <div class="project-title">neckarfreunde<br><em>Mission: Klarheit</em></div>
+      </div>
+      <div class="project-detail">
+        <p class="project-desc">
+          Meine Beratungspraxis für Inhaberinnen und Inhaber im Mittelstand.
+          Ich arbeite dort, wo Entscheidungen anstehen und keiner mehr weiterweiß:
+          Nachfolge, Krise, Positionierung. Dreißig Jahre Unternehmerpraxis
+          als Grundlage.
+        </p>
+        <span class="project-link">
+          neckarfreunde.de <span class="arrow">→</span>
+        </span>
+      </div>
+    </a>
+
+    <!-- PROJEKT III -->
+    <a class="project" href="#kontakt">
+      <div class="project-num">III</div>
+      <div class="project-main">
+        <div class="project-kind">Autor · Moderator · Speaker · Sparringspartner</div>
+        <div class="project-title">Ihsan David Khalil<br><em>persönlich</em></div>
+      </div>
+      <div class="project-detail">
+        <p class="project-desc">
+          Für Vorträge, Interviews und redaktionelle Anfragen. Und für alles,
+          was zwischen den beiden Projekten liegt – wenn Sie nicht wissen,
+          welche Tür die richtige ist, nehmen Sie diese hier.
+        </p>
+        <span class="project-link">
+          Kontakt <span class="arrow">↓</span>
+        </span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-label">Über mich</div>
+      <p class="about-text">
+        Dreißig Jahre Unternehmer. Diplom-Betriebswirt, MBA, systemischer Coach.
+        Vater zweier Töchter. Autor. Mein Arbeitsprinzip in einem Satz:
+        <em>Ich bringe Klarheit.</em> In Beratungsmandate, in Führungssituationen,
+        in Köpfe. Persönlich, nicht digital. Deshalb dieses Portal – als Landkarte
+        für alle, die wissen wollen, was ich mache und wo sie mich finden.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="social">
+  <div class="container">
+    <div class="section-label">
+      <span>Kanäle</span>
+      <span>digital – bis wir uns treffen</span>
+    </div>
+
+    <div class="social-columns">
+
+      <div class="social-column">
+        <div class="social-column-label">Ihsan · persönlich</div>
+        <a class="social-item" href="https://www.linkedin.com/in/ihsan-khalil/" target="_blank" rel="noopener">
+          <span class="social-platform">LinkedIn</span>
+          <span class="social-handle">/in/ihsan-khalil</span>
+        </a>
+        <a class="social-item" href="https://www.instagram.com/ihsan__khalil/" target="_blank" rel="noopener">
+          <span class="social-platform">Instagram</span>
+          <span class="social-handle">@ihsan__khalil</span>
+        </a>
+        <a class="social-item" href="https://www.youtube.com/@ihsankhalil4043" target="_blank" rel="noopener">
+          <span class="social-platform">YouTube</span>
+          <span class="social-handle">@ihsankhalil4043</span>
+        </a>
+      </div>
+
+      <div class="social-column">
+        <div class="social-column-label">neckarfreunde</div>
+        <a class="social-item" href="https://www.linkedin.com/company/neckarfreunde/" target="_blank" rel="noopener">
+          <span class="social-platform">LinkedIn</span>
+          <span class="social-handle">/company/neckarfreunde</span>
+        </a>
+        <a class="social-item" href="https://www.instagram.com/neckarfreunde/" target="_blank" rel="noopener">
+          <span class="social-platform">Instagram</span>
+          <span class="social-handle">@neckarfreunde</span>
+        </a>
+        <a class="social-item" href="https://www.threads.com/@neckarfreunde" target="_blank" rel="noopener">
+          <span class="social-platform">Threads</span>
+          <span class="social-handle">@neckarfreunde</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer id="kontakt">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-signature">© 2026 · Ihsan David Khalil</div>
+      <nav class="footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="mailto:kontakt@ihsan-khalil.de">Kontakt</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
