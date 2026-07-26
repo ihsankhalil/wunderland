@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>wunderländ – Ihsan David Khalil</title>
-<meta name="description" content="Das persönliche Portal von Ihsan David Khalil: Zenon-Methode, neckarfreunde Strategieberatung, Buch, Coaching, Vorträge und persönliche Begegnung.">
+<title>wunderländ – Portal von Ihsan David Khalil</title>
+<meta name="description" content="Portalseite von Ihsan David Khalil. Drei Projekte unter einem Dach: die Zenon-Methode, neckarfreunde Strategieberatung und persönliche Arbeit rund um Klarheit und Entscheidung.">
 <meta name="robots" content="index, follow">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,14 +13,14 @@
 
 <style>
 :root {
-  --ink: #0F1729;
-  --ink-soft: #182238;
-  --sand: #E8DFD3;
-  --sand-dim: #C9BFB1;
-  --copper: #B8724C;
-  --hairline: rgba(232,223,211,.14);
-  --hairline-strong: rgba(232,223,211,.28);
-  --max: 1200px;
+  --ink:        #0F1729;   /* Nachtblau, Basis */
+  --ink-soft:   #1A2338;   /* leichte Erhebung */
+  --sand:       #E8DFD3;   /* warmes Sandbeige */
+  --sand-dim:   #C9BFB1;   /* gedämpftes Beige */
+  --copper:     #B8724C;   /* Kupferakzent */
+  --copper-dim: #8A5638;
+  --hairline:   rgba(232, 223, 211, 0.14);
+  --hairline-strong: rgba(232, 223, 211, 0.28);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,702 +30,549 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--ink);
   color: var(--sand);
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 300;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Ambient background – ganz leichte, statische Vignette */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(circle at 8% 0%, rgba(184,114,76,.08), transparent 35%),
-    radial-gradient(circle at 100% 80%, rgba(232,223,211,.04), transparent 35%);
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(184, 114, 76, 0.06), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(232, 223, 211, 0.03), transparent 60%);
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
 }
-
-img { display: block; width: 100%; }
-
-a { color: inherit; }
 
 .container {
-  width: min(var(--max), calc(100% - 64px));
-  margin-inline: auto;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
 }
 
+/* ── HEADER ─────────────────────────────────── */
 header {
+  padding: 32px 0;
   border-bottom: 1px solid var(--hairline);
-  padding: 28px 0;
 }
-
 .header-inner {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 24px;
+  align-items: baseline;
 }
-
 .wordmark {
-  font-family: "Fraunces", serif;
-  font-size: 23px;
-  letter-spacing: -.02em;
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--sand);
 }
-
 .wordmark span { color: var(--copper); }
-
-.header-meta {
-  font-size: 11px;
-  letter-spacing: .18em;
+.meta {
+  font-size: 12px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--sand-dim);
 }
 
-/* HERO */
+/* ── HERO ───────────────────────────────────── */
 .hero {
-  min-height: 760px;
+  padding: 120px 0 100px;
   border-bottom: 1px solid var(--hairline);
 }
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.03fr .97fr;
-  min-height: 760px;
-}
-
-.hero-copy {
-  padding: 110px 70px 90px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .eyebrow {
-  display: flex;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 32px;
+  display: inline-flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 28px;
-  color: var(--copper);
-  font-size: 11px;
-  letter-spacing: .22em;
-  text-transform: uppercase;
 }
-
 .eyebrow::before {
   content: "";
-  width: 28px;
+  width: 24px;
   height: 1px;
   background: var(--copper);
 }
-
 h1 {
-  font-family: "Fraunces", serif;
-  font-size: clamp(48px, 6.2vw, 86px);
+  font-family: 'Fraunces', serif;
   font-weight: 300;
-  line-height: 1.02;
-  letter-spacing: -.035em;
-  max-width: 760px;
-}
-
-h1 em {
-  display: block;
-  color: var(--copper);
-  font-weight: 400;
-}
-
-.hero-lede {
-  max-width: 610px;
-  margin-top: 36px;
-  color: var(--sand-dim);
-  font-size: 18px;
-  line-height: 1.7;
-}
-
-.hero-signature {
-  margin-top: 38px;
-  font-family: "Fraunces", serif;
-  font-size: 18px;
-}
-
-.hero-image {
-  min-height: 760px;
-  position: relative;
-  overflow: hidden;
-  background: var(--ink-soft);
-}
-
-.hero-image img {
-  height: 100%;
-  object-fit: cover;
-  object-position: 49% 37%;
-}
-
-.hero-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(15,23,41,.22), transparent 28%);
-  pointer-events: none;
-}
-
-.image-caption {
-  position: absolute;
-  right: 26px;
-  bottom: 24px;
-  z-index: 2;
-  padding: 8px 11px;
-  background: rgba(15,23,41,.7);
-  backdrop-filter: blur(10px);
-  color: var(--sand-dim);
-  font-size: 10px;
-  letter-spacing: .17em;
-  text-transform: uppercase;
-}
-
-/* INTRO */
-.intro {
-  padding: 100px 0;
-  border-bottom: 1px solid var(--hairline);
-}
-
-.intro-grid {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 70px;
-}
-
-.label {
-  color: var(--copper);
-  font-size: 11px;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-}
-
-.intro-text {
-  font-family: "Fraunces", serif;
-  font-size: clamp(25px, 3vw, 39px);
-  line-height: 1.35;
-  font-weight: 300;
+  font-size: clamp(42px, 6vw, 84px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--sand);
   max-width: 900px;
+  margin-bottom: 40px;
 }
-
-.intro-text em {
-  color: var(--copper);
+h1 em {
   font-style: italic;
-}
-
-/* PHOTO STORY */
-.photo-story {
-  padding: 100px 0 110px;
-  border-bottom: 1px solid var(--hairline);
-}
-
-.photo-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 24px;
-  padding-bottom: 22px;
-  margin-bottom: 50px;
-  border-bottom: 1px solid var(--hairline);
-}
-
-.photo-head h2,
-.projects-head h2 {
-  font-family: "Fraunces", serif;
-  font-weight: 300;
-  font-size: clamp(34px, 4vw, 54px);
-  letter-spacing: -.025em;
-}
-
-.photo-head p {
-  max-width: 470px;
-  color: var(--sand-dim);
-  font-size: 14px;
-}
-
-.photo-grid {
-  display: grid;
-  grid-template-columns: 1.42fr .58fr;
-  gap: 24px;
-}
-
-.photo-card {
-  position: relative;
-  overflow: hidden;
-  background: var(--ink-soft);
-}
-
-.photo-card.large { aspect-ratio: 16 / 10; }
-.photo-card.tall { aspect-ratio: 4 / 5; }
-
-.photo-card img {
-  height: 100%;
-  object-fit: cover;
-  transition: transform .7s ease;
-}
-
-.photo-card.large img { object-position: center 43%; }
-.photo-card.tall img { object-position: 48% 36%; }
-
-.photo-card:hover img { transform: scale(1.018); }
-
-.photo-overlay {
-  position: absolute;
-  inset: auto 0 0;
-  padding: 60px 26px 24px;
-  background: linear-gradient(transparent, rgba(15,23,41,.84));
-}
-
-.photo-kicker {
-  font-size: 10px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
+  font-weight: 400;
   color: var(--copper);
 }
-
-.photo-title {
-  margin-top: 6px;
-  font-family: "Fraunces", serif;
-  font-size: 25px;
+.hero-lede {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--sand-dim);
+  max-width: 620px;
+  font-weight: 300;
 }
 
-/* PROJECTS */
+/* ── PROJEKT-INDEX ──────────────────────────── */
 .projects {
-  padding: 110px 0;
+  padding: 100px 0;
 }
-
-.projects-head {
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sand-dim);
+  margin-bottom: 60px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--hairline);
   display: flex;
   justify-content: space-between;
-  align-items: end;
-  gap: 32px;
-  margin-bottom: 48px;
 }
-
-.projects-head p {
-  max-width: 450px;
-  color: var(--sand-dim);
-  font-size: 14px;
-}
+.section-label span { color: var(--copper); }
 
 .project {
   display: grid;
   grid-template-columns: 80px 1fr 1fr;
-  gap: 38px;
+  gap: 40px;
   padding: 48px 0;
-  border-top: 1px solid var(--hairline);
-  color: inherit;
+  border-bottom: 1px solid var(--hairline);
+  align-items: start;
   text-decoration: none;
-  transition: padding-left .35s ease;
+  color: inherit;
+  transition: padding-left 0.4s ease;
 }
-
-.project:last-child { border-bottom: 1px solid var(--hairline); }
-.project:hover { padding-left: 18px; }
+.project:hover {
+  padding-left: 20px;
+}
+.project:hover .project-num {
+  color: var(--copper);
+}
+.project:hover .project-title {
+  color: var(--copper);
+}
 
 .project-num {
-  font-family: "Fraunces", serif;
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 32px;
   font-style: italic;
-  font-size: 30px;
   color: var(--sand-dim);
+  transition: color 0.3s ease;
 }
 
+.project-main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 .project-kind {
-  margin-bottom: 11px;
-  color: var(--sand-dim);
-  font-size: 10px;
-  letter-spacing: .18em;
+  font-size: 11px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  color: var(--sand-dim);
 }
-
 .project-title {
-  font-family: "Fraunces", serif;
-  font-size: 35px;
-  line-height: 1.15;
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--sand);
+  transition: color 0.3s ease;
 }
-
 .project-title em {
-  color: var(--copper);
+  font-style: italic;
   font-weight: 300;
 }
 
+.project-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .project-desc {
-  color: var(--sand-dim);
   font-size: 15px;
-}
-
-.project-link {
-  display: inline-block;
-  margin-top: 18px;
-  padding-bottom: 4px;
-  border-bottom: 1px solid var(--hairline-strong);
-  font-size: 13px;
-}
-
-/* CONTACT */
-.contact {
-  border-top: 1px solid var(--hairline);
-  padding: 110px 0;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 60px;
-  align-items: end;
-}
-
-.contact h2 {
-  font-family: "Fraunces", serif;
-  font-weight: 300;
-  font-size: clamp(42px, 5vw, 72px);
-  line-height: 1.05;
-  letter-spacing: -.03em;
-}
-
-.contact p {
-  max-width: 600px;
-  margin-top: 24px;
+  line-height: 1.65;
   color: var(--sand-dim);
 }
-
-.contact-link {
+.project-link {
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: var(--sand);
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 16px 0 9px;
-  border-bottom: 1px solid var(--copper);
-  text-decoration: none;
-  white-space: nowrap;
-  font-size: 15px;
+  gap: 8px;
+  border-bottom: 1px solid var(--hairline-strong);
+  padding-bottom: 4px;
+  align-self: flex-start;
+}
+.project-link .arrow {
+  font-family: 'Fraunces', serif;
+  transition: transform 0.3s ease;
+}
+.project:hover .project-link .arrow {
+  transform: translateX(4px);
 }
 
-.contact-link span {
-  color: var(--copper);
-  font-family: "Fraunces", serif;
-  font-size: 23px;
+/* ── ÜBER-TEXT (unauffällig) ────────────────── */
+.about {
+  padding: 100px 0;
+  border-top: 1px solid var(--hairline);
 }
-
-.social {
-  margin-top: 80px;
+.about-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  border-top: 1px solid var(--hairline);
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+  align-items: start;
 }
+.about-portraits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.portrait {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--ink-soft);
+}
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(0.35) brightness(0.92) contrast(1.05);
+  transition: filter 0.5s ease;
+}
+.portrait:hover img { filter: grayscale(0) brightness(1) contrast(1); }
+.portrait:nth-child(1) img { object-position: center 20%; }
+.portrait:nth-child(2) img { object-position: center 30%; }
 
-.social a {
-  padding: 22px 12px 22px 0;
-  border-bottom: 1px solid var(--hairline);
-  color: var(--sand-dim);
-  text-decoration: none;
+.about-content { padding-top: 4px; }
+.about-label {
   font-size: 12px;
-  letter-spacing: .08em;
-  transition: color .2s;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 20px;
+}
+.about-text {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 1.55;
+  color: var(--sand);
+  max-width: 620px;
+}
+.about-text em {
+  font-style: italic;
+  color: var(--copper);
 }
 
-.social a:hover { color: var(--copper); }
-
-footer {
-  padding: 38px 0;
+/* ── SOCIAL ─────────────────────────────────── */
+.social {
+  padding: 100px 0;
   border-top: 1px solid var(--hairline);
 }
+.social-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+.social-column {
+  display: flex;
+  flex-direction: column;
+}
+.social-column-label {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copper);
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--hairline-strong);
+  margin-bottom: 8px;
+}
+.social-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--hairline);
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left 0.3s ease;
+}
+.social-item:hover { padding-left: 12px; }
+.social-item:hover .social-platform { color: var(--copper); }
 
+.social-platform {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--sand);
+  transition: color 0.3s ease;
+}
+.social-handle {
+  font-size: 13px;
+  color: var(--sand-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── FOOTER ─────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--hairline);
+  padding: 48px 0 40px;
+}
 .footer-inner {
   display: flex;
   justify-content: space-between;
-  gap: 24px;
+  align-items: baseline;
   flex-wrap: wrap;
-  color: var(--sand-dim);
-  font-size: 11px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  gap: 24px;
 }
-
+.footer-signature {
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  color: var(--sand-dim);
+}
 .footer-links {
   display: flex;
-  gap: 26px;
+  gap: 32px;
 }
-
 .footer-links a {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sand-dim);
   text-decoration: none;
+  transition: color 0.2s;
 }
-
 .footer-links a:hover { color: var(--copper); }
 
+/* ── RESPONSIVE ─────────────────────────────── */
+@media (max-width: 768px) {
+  .container { padding: 0 24px; }
+  .hero { padding: 60px 0; }
+  .projects { padding: 60px 0; }
+  .about { padding: 60px 0; }
+  .project {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 0;
+  }
+  .project:hover { padding-left: 0; }
+  .project-num { font-size: 24px; }
+  .project-title { font-size: 28px; }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-portraits { max-width: 320px; }
+  .about-text { font-size: 18px; }
+  .social { padding: 60px 0; }
+  .social-columns { grid-template-columns: 1fr; gap: 40px; }
+  .social-item:hover { padding-left: 0; }
+  .header-inner { flex-direction: column; gap: 8px; align-items: flex-start; }
+}
+
+/* Focus states – Barrierefreiheit */
 a:focus-visible {
   outline: 2px solid var(--copper);
   outline-offset: 4px;
-}
-
-@media (max-width: 900px) {
-  .container { width: min(100% - 40px, var(--max)); }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-
-  .hero-copy {
-    padding: 80px 0 58px;
-  }
-
-  .hero-image {
-    min-height: 590px;
-  }
-
-  .intro-grid {
-    grid-template-columns: 1fr;
-    gap: 26px;
-  }
-
-  .photo-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .photo-card.large,
-  .photo-card.tall {
-    aspect-ratio: 4 / 5;
-  }
-
-  .photo-card.large img { object-position: 56% center; }
-
-  .project {
-    grid-template-columns: 55px 1fr;
-  }
-
-  .project-detail {
-    grid-column: 2;
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .social {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 600px) {
-  header { padding: 22px 0; }
-
-  .header-inner {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .hero-copy { padding-top: 64px; }
-  .hero-image { min-height: 500px; }
-
-  .intro,
-  .photo-story,
-  .projects,
-  .contact {
-    padding: 74px 0;
-  }
-
-  .photo-head,
-  .projects-head {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .project {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 38px 0;
-  }
-
-  .project-detail { grid-column: auto; }
-  .project:hover { padding-left: 0; }
-
-  .social {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-links {
-    flex-wrap: wrap;
-    gap: 16px 24px;
-  }
+  border-radius: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * { scroll-behavior: auto !important; transition: none !important; }
+  * { transition: none !important; animation: none !important; }
+  html { scroll-behavior: auto; }
 }
 </style>
 </head>
-
 <body>
 
 <header>
-  <div class="container header-inner">
-    <div class="wordmark">wunderländ<span>.</span></div>
-    <div class="header-meta">Portal von Ihsan David Khalil · Stuttgart</div>
+  <div class="container">
+    <div class="header-inner">
+      <div class="wordmark">wunderländ<span>.</span></div>
+      <div class="meta">Portal · Stuttgart</div>
+    </div>
   </div>
 </header>
 
-<main>
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Ein Kunde, ein Satz, ein Motto</div>
+    <h1>„Ihsan, du bist <em>erlebensbedürftig.</em>"</h1>
+    <p class="hero-lede">
+      Digital, per Telefon, per Mail, per Social Media – alles schön und gut.
+      Aber man muss mich persönlich kennenlernen. Das war der Satz eines Kunden.
+      Er ist geblieben. Diese Seite zeigt, woran ich arbeite.<br><br>
+      <strong style="color: var(--sand); font-weight: 400;">Ihsan David Khalil.</strong>
+    </p>
+  </div>
+</section>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <div class="eyebrow">Ein Kunde, ein Satz, ein Motto</div>
-        <h1>„Ihsan, du bist <em>erlebensbedürftig.</em>“</h1>
-        <p class="hero-lede">
-          Digital, per Telefon, per Mail, per Social Media – alles schön und gut.
-          Aber man muss mich persönlich kennenlernen. Das war der Satz eines Kunden.
-          Er ist geblieben. Diese Seite zeigt, woran ich arbeite, was mich antreibt
-          und wo wir uns begegnen können.
+<section class="projects">
+  <div class="container">
+    <div class="section-label">
+      <span>Index</span>
+      <span>2026</span>
+    </div>
+
+    <!-- PROJEKT I -->
+    <a class="project" href="https://www.ihsan-khalil.de" target="_blank" rel="noopener">
+      <div class="project-num">I</div>
+      <div class="project-main">
+        <div class="project-kind">Buch · Methode · Coaching</div>
+        <div class="project-title">Zenon-Methode<br><em>mein Lebensthema</em></div>
+      </div>
+      <div class="project-detail">
+        <p class="project-desc">
+          Zwanzig Jahre Arbeit an einer Frage: Wie stoppt man das Gedanken­karussell,
+          bevor es einen stoppt? Herausgekommen ist ein Buch und eine Methode,
+          die ich in Coachings und Retreats weitergebe.
         </p>
-        <div class="hero-signature">Ihsan David Khalil.</div>
+        <span class="project-link">
+          ihsan-khalil.de <span class="arrow">→</span>
+        </span>
       </div>
+    </a>
 
-      <figure class="hero-image">
-        <img src="ihsan-portrait.jpg" alt="Ihsan David Khalil lächelnd und im persönlichen Gespräch" fetchpriority="high">
-        <figcaption class="image-caption">persönlich · direkt · ansprechbar</figcaption>
-      </figure>
-    </div>
-  </section>
+    <!-- PROJEKT II -->
+    <a class="project" href="https://www.neckarfreunde.de" target="_blank" rel="noopener">
+      <div class="project-num">II</div>
+      <div class="project-main">
+        <div class="project-kind">Strategieberatung · B2B</div>
+        <div class="project-title">neckarfreunde<br><em>Mission: Klarheit</em></div>
+      </div>
+      <div class="project-detail">
+        <p class="project-desc">
+          Meine Beratungspraxis für Inhaberinnen und Inhaber im Mittelstand.
+          Ich arbeite dort, wo Entscheidungen anstehen und keiner mehr weiterweiß:
+          Nachfolge, Krise, Positionierung. Dreißig Jahre Unternehmerpraxis
+          als Grundlage.
+        </p>
+        <span class="project-link">
+          neckarfreunde.de <span class="arrow">→</span>
+        </span>
+      </div>
+    </a>
 
-  <section class="intro">
-    <div class="container intro-grid">
-      <div class="label">Worum es geht</div>
-      <p class="intro-text">
-        Strategie ist mein Beruf. Klarheit ist mein Thema.
-        Begegnung ist der Teil, den keine Website ersetzen kann.
-        <em>Deshalb ist wunderländ keine Hochglanzfassade, sondern eine Landkarte zu meiner Arbeit.</em>
-      </p>
-    </div>
-  </section>
+    <!-- PROJEKT III -->
+    <a class="project" href="mailto:ik@ihsan-khalil.de">
+      <div class="project-num">III</div>
+      <div class="project-main">
+        <div class="project-kind">Autor · Moderator · Speaker · Sparringspartner</div>
+        <div class="project-title">Ihsan David Khalil<br><em>persönlich</em></div>
+      </div>
+      <div class="project-detail">
+        <p class="project-desc">
+          Für Vorträge, Interviews und redaktionelle Anfragen. Und für alles,
+          was zwischen den beiden Projekten liegt – wenn Sie nicht wissen,
+          welche Tür die richtige ist, nehmen Sie diese hier.
+        </p>
+        <span class="project-link">
+          ik@ihsan-khalil.de <span class="arrow">→</span>
+        </span>
+      </div>
+    </a>
 
-  <section class="photo-story">
-    <div class="container">
-      <div class="photo-head">
-        <h2>Nicht nur eine Rolle.</h2>
-        <p>
-          Berater, Autor, Coach, Unternehmer, Vater und ein Mensch mit Lust auf
-          Neuanfang. Die Arbeit ist professionell. Der Mensch dahinter bleibt sichtbar.
+  </div>
+</section>
+
+<section class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-portraits">
+        <div class="portrait">
+          <img src="ihsan-portrait.jpg" alt="Ihsan David Khalil, offen" loading="lazy">
+        </div>
+        <div class="portrait">
+          <img src="ihsan-portrait-2.jpg" alt="Ihsan David Khalil, im Denken" loading="lazy">
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="about-label">Über mich</div>
+        <p class="about-text">
+          Dreißig Jahre Unternehmer. Diplom-Betriebswirt, MBA, systemischer Coach.
+          Vater zweier Töchter. Autor. Mein Arbeitsprinzip in einem Satz:
+          <em>Ich bringe Klarheit.</em> In Beratungsmandate, in Führungssituationen,
+          in Köpfe. Persönlich, nicht digital. Deshalb dieses Portal – als Landkarte
+          für alle, die wissen wollen, was ich mache und wo sie mich finden.
         </p>
       </div>
-
-      <div class="photo-grid">
-        <figure class="photo-card large">
-          <img src="ihsan-professional.jpg" alt="Ihsan David Khalil im professionellen Porträt">
-          <figcaption class="photo-overlay">
-            <div class="photo-kicker">Arbeit</div>
-            <div class="photo-title">Klar denken. Klar entscheiden.</div>
-          </figcaption>
-        </figure>
-
-        <figure class="photo-card tall">
-          <img src="ihsan-leben.jpg" alt="Ihsan David Khalil an einem Camper">
-          <figcaption class="photo-overlay">
-            <div class="photo-kicker">Leben</div>
-            <div class="photo-title">Neugierig bleiben.</div>
-          </figcaption>
-        </figure>
-      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="projects">
-    <div class="container">
-      <div class="projects-head">
-        <h2>Drei Türen.</h2>
-        <p>
-          Je nachdem, weshalb Sie hier sind: persönliche Entwicklung,
-          unternehmerische Klarheit oder eine direkte Anfrage an mich.
-        </p>
-      </div>
-
-      <a class="project" href="https://www.ihsan-khalil.de" target="_blank" rel="noopener">
-        <div class="project-num">I</div>
-        <div>
-          <div class="project-kind">Buch · Methode · Coaching</div>
-          <div class="project-title">Zenon-Methode<br><em>mein Lebensthema</em></div>
-        </div>
-        <div class="project-detail">
-          <p class="project-desc">
-            Zwanzig Jahre Arbeit an einer Frage: Wie stoppt man das Gedankenkarussell,
-            bevor es einen stoppt? Daraus entstehen ein Buch, Coachings und Retreats.
-          </p>
-          <span class="project-link">ihsan-khalil.de →</span>
-        </div>
-      </a>
-
-      <a class="project" href="https://www.neckarfreunde.de" target="_blank" rel="noopener">
-        <div class="project-num">II</div>
-        <div>
-          <div class="project-kind">Strategieberatung · B2B</div>
-          <div class="project-title">neckarfreunde<br><em>Mission: Klarheit</em></div>
-        </div>
-        <div class="project-detail">
-          <p class="project-desc">
-            Strategieberatung für Inhaberinnen und Inhaber im Mittelstand.
-            Wenn Entscheidungen anstehen, Veränderung notwendig wird oder eine
-            klare Position fehlt.
-          </p>
-          <span class="project-link">neckarfreunde.de →</span>
-        </div>
-      </a>
-
-      <a class="project" href="#kontakt">
-        <div class="project-num">III</div>
-        <div>
-          <div class="project-kind">Autor · Moderator · Speaker · Sparringspartner</div>
-          <div class="project-title">Ihsan David Khalil<br><em>persönlich</em></div>
-        </div>
-        <div class="project-detail">
-          <p class="project-desc">
-            Für Vorträge, Interviews, redaktionelle Anfragen und alles, was
-            zwischen den Projekten liegt. Wenn Sie nicht wissen, welche Tür passt,
-            nehmen Sie diese.
-          </p>
-          <span class="project-link">Kontakt ↓</span>
-        </div>
-      </a>
+<section class="social">
+  <div class="container">
+    <div class="section-label">
+      <span>Kanäle</span>
+      <span>digital – bis wir uns treffen</span>
     </div>
-  </section>
 
-  <section class="contact" id="kontakt">
-    <div class="container">
-      <div class="contact-grid">
-        <div>
-          <div class="label">Kontakt</div>
-          <h2>Am Ende zählt die Begegnung.</h2>
-          <p>
-            Schreiben Sie mir, wenn Sie eine Frage, ein Projekt oder einfach
-            einen Gedanken haben, über den wir sprechen sollten.
-          </p>
-        </div>
-        <a class="contact-link" href="mailto:ik@ihsan-khalil.de">
-          ik@ihsan-khalil.de <span>→</span>
+    <div class="social-columns">
+
+      <div class="social-column">
+        <div class="social-column-label">Ihsan · persönlich</div>
+        <a class="social-item" href="https://www.linkedin.com/in/ihsan-khalil/" target="_blank" rel="noopener">
+          <span class="social-platform">LinkedIn</span>
+          <span class="social-handle">/in/ihsan-khalil</span>
+        </a>
+        <a class="social-item" href="https://www.instagram.com/ihsan__khalil/" target="_blank" rel="noopener">
+          <span class="social-platform">Instagram</span>
+          <span class="social-handle">@ihsan__khalil</span>
+        </a>
+        <a class="social-item" href="https://www.youtube.com/@ihsankhalil4043" target="_blank" rel="noopener">
+          <span class="social-platform">YouTube</span>
+          <span class="social-handle">@ihsankhalil4043</span>
         </a>
       </div>
 
-      <nav class="social" aria-label="Social Media">
-        <a href="https://www.linkedin.com/in/ihsan-khalil/" target="_blank" rel="noopener">LinkedIn · persönlich</a>
-        <a href="https://www.instagram.com/ihsan__khalil/" target="_blank" rel="noopener">Instagram · persönlich</a>
-        <a href="https://www.youtube.com/@ihsankhalil4043" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.linkedin.com/company/neckarfreunde/" target="_blank" rel="noopener">LinkedIn · neckarfreunde</a>
-        <a href="https://www.instagram.com/neckarfreunde/" target="_blank" rel="noopener">Instagram · neckarfreunde</a>
+      <div class="social-column">
+        <div class="social-column-label">neckarfreunde</div>
+        <a class="social-item" href="https://www.linkedin.com/company/neckarfreunde/" target="_blank" rel="noopener">
+          <span class="social-platform">LinkedIn</span>
+          <span class="social-handle">/company/neckarfreunde</span>
+        </a>
+        <a class="social-item" href="https://www.instagram.com/neckarfreunde/" target="_blank" rel="noopener">
+          <span class="social-platform">Instagram</span>
+          <span class="social-handle">@neckarfreunde</span>
+        </a>
+        <a class="social-item" href="https://www.threads.com/@neckarfreunde" target="_blank" rel="noopener">
+          <span class="social-platform">Threads</span>
+          <span class="social-handle">@neckarfreunde</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer id="kontakt">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-signature">© 2026 · Ihsan David Khalil</div>
+      <nav class="footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="mailto:ik@ihsan-khalil.de">Kontakt</a>
       </nav>
     </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="container footer-inner">
-    <div>© 2026 · Ihsan David Khalil · wunderländ</div>
-    <nav class="footer-links">
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-      <a href="mailto:ik@ihsan-khalil.de">Kontakt</a>
-    </nav>
   </div>
 </footer>
 
